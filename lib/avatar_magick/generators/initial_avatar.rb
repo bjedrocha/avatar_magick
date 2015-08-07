@@ -2,18 +2,23 @@ require "dragonfly/hash_with_css_style_keys"
 
 module AvatarMagick
   module Generators
+
+    # Generates an initials avatar by extracting the first letter of
+    # the first 3 words in string. Can be customized with background color,
+    # text color, font, and size.
     class InitialAvatar
       def call(content, string, opts={})
         opts = ::Dragonfly::HashWithCssStyleKeys[opts]
         args = []
 
         # defaults
-        format = opts[:format] || :png
-        background = opts[:background_color] ? "##{opts[:background_color]}" : '#000000'
-        color = opts[:color] ? "##{opts[:color]}" : '#FFFFFF'
-        size = opts[:size] || '120x120'
-        font = opts[:font] || 'Arial-Regular'
+        format      = opts[:format] || :png
+        background  = opts[:background_color] ? "##{opts[:background_color]}" : '#000000'
+        color       = opts[:color] ? "##{opts[:color]}" : '#FFFFFF'
+        size        = opts[:size] || '120x120'
+        font        = opts[:font] || 'Arial-Regular'
 
+        # extract the first letter of the first 3 words and capitalize
         text = (string.split(/\s/)- ["", nil]).map { |t| t[0].upcase }.slice(0, 3).join('')
 
         w, h = size.split('x').map { |d| d.to_i }
