@@ -28,10 +28,15 @@ Once installed, you'll need to register the AvatarMagick plugin along with the [
 
 #### Rails
 
-If you're using Dragonfly within your Rails application, you'll already have a `config/initializers/dragonfly.rb` file where your Dragonfly configuration settings are stored. Edit the file and add the following directly below the `plugin :imagemagick` line
+If you're using Dragonfly within your Rails application, you'll already have a `config/initializers/dragonfly.rb` file where your Dragonfly configuration settings are stored. Edit the file and add the plugin within the `configure` block
 
 ```ruby
-plugin :avatarmagick
+Dragonfly.app.configure do
+	plugin :imagemagick
+	plugin :avatarmagick
+	
+	# rest of settings...
+end
 ```
 
 #### Sinatra/Rack/Other
@@ -46,6 +51,39 @@ Dragonfly.app.configure do
   plugin :avatarmagick
 end
 ```
+
+## Configuration
+
+You can configure defaults for text color, background color, size, and font. If not specified, AvatarMagick will use the following defaults
+
+```
+color: FFFFFF
+background_color: 000000
+size: '120x120'
+font: 'Arial-Regular'
+```
+
+To overwrite, simply provide new values for any of the above within Dragonfly's `configure` block. For example, if you wanted the default background to be red (FF0000) instead of black (000000) and the default size to be 200px by 200px
+
+```ruby
+Dragonfly.app.configure do
+	plugin :imagemagick
+	plugin :avatarmagick, background_color: 'FF0000', size: '200x200'
+end
+```
+
+Or, if you wanted to change the default font
+
+```ruby
+Dragonfly.app.configure do
+	plugin :imagemagick
+	plugin :avatarmagick, font: 'OpenSans'
+end
+```
+
+##### Choosing Fonts
+
+To see what fonts are available, open up the terminal and type `convert -list font`. You can select any font listed when configuring or when calling `generate`.
 
 ## Usage
 
@@ -112,9 +150,7 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## Roadmap
 
-1. Adds specs
-2. Make all options globally configurable within Dragonfly's `configure` block
-3. Add support for older versions (0.9.x) of Dragonfly
+1. Add support for older versions (0.9.x) of Dragonfly
 
 ## Contributing
 
