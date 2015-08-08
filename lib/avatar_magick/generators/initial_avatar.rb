@@ -12,11 +12,11 @@ module AvatarMagick
         args = []
 
         # defaults
-        format      = opts[:format] || :png
-        background  = opts[:background_color] ? "##{opts[:background_color]}" : '#000000'
-        color       = opts[:color] ? "##{opts[:color]}" : '#FFFFFF'
-        size        = opts[:size] || '120x120'
-        font        = opts[:font] || 'Arial-Regular'
+        format      = opts[:format] || 'png'
+        background  = opts[:background_color] ? "##{opts[:background_color]}" : content.env[:avatar_magick][:background_color]
+        color       = opts[:color] ? "##{opts[:color]}" : content.env[:avatar_magick][:color]
+        size        = opts[:size] || content.env[:avatar_magick][:size]
+        font        = opts[:font] || content.env[:avatar_magick][:font]
 
         # extract the first letter of the first 3 words and capitalize
         text = (string.split(/\s/)- ["", nil]).map { |t| t[0].upcase }.slice(0, 3).join('')
@@ -45,7 +45,7 @@ module AvatarMagick
 
         content.generate!(:convert, args.join(' '), format)
 
-        content.add_meta('format' => format, 'name' => "text.#{format}")
+        content.add_meta('format' => format, 'name' => "avatar.#{format}")
       end
     end
   end
