@@ -110,6 +110,12 @@ After checking out the repo, run `bash bin/setup` to install dependencies. Then,
 
 To install this gem onto your local machine, run `bundle exec rake install`.
 
+## Roadmap
+
+1. Adds specs
+2. Make all options globally configurable within Dragonfly's `configure` block
+3. Add support for older versions (0.9.x) of Dragonfly
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/avatar_magick/fork )
