@@ -27,7 +27,7 @@ module AvatarMagick
         font_size = ( w / [text.length, 2].max ).to_i
 
         # Settings
-        args.push("-gravity Center")
+        args.push("-gravity none")
         args.push("-antialias")
         args.push("-pointsize #{font_size}")
         args.push("-font \"#{font}\"")
@@ -38,12 +38,11 @@ module AvatarMagick
 
         content.generate!(:convert, args.join(' '), format)
 
-        args = args.slice(0, args.length - 2)
-        args.push("-size #{w}x#{h}")
-        args.push("xc:#{background}")
-        args.push("-annotate 0x0 #{text}")
+        args.clear
+        args.push("-gravity center")
+        args.push("-extent #{w}x#{h}")
 
-        content.generate!(:convert, args.join(' '), format)
+        content.process!(:convert, args.join(' '))
 
         content.add_meta('format' => format, 'name' => "avatar.#{format}")
       end
