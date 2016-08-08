@@ -6,7 +6,7 @@ AvatarMagick is a [Dragonfly](https://github.com/markevans/dragonfly) plugin for
 	<img src="https://dl.dropboxusercontent.com/u/362501/avatarmagic-github-readme.png" alt="sample">
 </p>
 
-The plugin is configurable and options can be set to control background color, text color, font, and size. For more information, please see [this blog post](http://bjedrocha.com/rails/2016/01/06/default-gmail-style-avatars-in-rails/) and accompanying [source](https://github.com/bjedrocha/avatar-magick-example). 
+The plugin is configurable and options can be set to control background color, text color, font, and size. For more information, please see [this blog post](http://bjedrocha.com/rails/2016/01/06/default-gmail-style-avatars-in-rails/) and accompanying [example project](https://github.com/bjedrocha/avatar-magick-example). 
 
 #### Dragonfly compatibility
 
