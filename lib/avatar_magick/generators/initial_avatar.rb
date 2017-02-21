@@ -24,8 +24,9 @@ module AvatarMagick
         w, h = size.split('x').map { |d| d.to_i }
         h ||= w
 
-        font_size = ( w / [text.length, 2].max ).to_i
-
+        font_size = (w / [text.length, 2].max).to_i
+        offset = (h / 10).to_i
+        
         # Settings
         args.push("-gravity south")
         args.push("-antialias")
@@ -34,7 +35,7 @@ module AvatarMagick
         args.push("-family '#{opts[:font_family]}'") if opts[:font_family]
         args.push("-fill #{color}")
         args.push("-background #{background}")
-        args.push("-chop 0x1")
+        args.push("-chop 0x#{offset}")
         args.push("label:#{text}")
 
         content.generate!(:convert, args.join(' '), format)
