@@ -27,13 +27,14 @@ module AvatarMagick
         font_size = ( w / [text.length, 2].max ).to_i
 
         # Settings
-        args.push("-gravity none")
+        args.push("-gravity south")
         args.push("-antialias")
         args.push("-pointsize #{font_size}")
         args.push("-font \"#{font}\"")
         args.push("-family '#{opts[:font_family]}'") if opts[:font_family]
         args.push("-fill #{color}")
         args.push("-background #{background}")
+        args.push("-chop 0x1")
         args.push("label:#{text}")
 
         content.generate!(:convert, args.join(' '), format)
