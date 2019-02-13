@@ -3,10 +3,10 @@
 AvatarMagick is a [Dragonfly](https://github.com/markevans/dragonfly) plugin for generating Gmail style avatars like those pictured below
 
 <p align="center">
-	<img src="https://dl.dropboxusercontent.com/u/362501/avatarmagic-github-readme.png" alt="sample">
+	<img src="https://user-images.githubusercontent.com/138067/52684517-8a70a400-2f14-11e9-8412-04945bc7c839.png" alt="sample">
 </p>
 
-The plugin is configurable and options can be set to control background color, text color, font, and size. For more information, please see [this blog post](http://bjedrocha.com/rails/2016/01/06/default-gmail-style-avatars-in-rails/) and accompanying [example project](https://github.com/bjedrocha/avatar-magick-example). 
+The plugin is configurable and options can be set to control background color, text color, font, and size. For more information, please see [this blog post](http://bjedrocha.com/rails/2016/01/06/default-gmail-style-avatars-in-rails/) and accompanying [example project](https://github.com/bjedrocha/avatar-magick-example).
 
 #### Dragonfly compatibility
 
@@ -23,7 +23,7 @@ gem 'avatar_magick'
 And then execute:
 
     $ bundle
-    
+
 Once installed, you'll need to register the AvatarMagick plugin along with the [ImageMagick](http://markevans.github.io/dragonfly/imagemagick/) plugin that's included with the Dragonfly gem.
 
 #### Rails
@@ -34,7 +34,7 @@ If you're using Dragonfly within your Rails application, you'll already have a `
 Dragonfly.app.configure do
 	plugin :imagemagick
 	plugin :avatarmagick
-	
+
 	# rest of settings...
 end
 ```
@@ -97,7 +97,7 @@ image = Dragonfly.app.generate(:initial_avatar, "Bart Jedrocha")
 
 will produce
 
-![basic](https://dl.dropboxusercontent.com/u/362501/avatarmagick-readme-basic.png)
+![basic](https://user-images.githubusercontent.com/138067/52684554-a6744580-2f14-11e9-8468-dec84a102f01.png)
 
 The plugin will extract at most 3 initials from the passed-in string (e.g. Bill James Pheonix MacKenzie will produce an avatar with the initials BJP). This should be sufficient for the vast majority of cases.
 
@@ -111,7 +111,7 @@ Dragonfly.app.generate(:initial_avatar, "Martin", {background_color: 'ff8f00'})
 
 will produce
 
-![bgcolor](https://dl.dropboxusercontent.com/u/362501/avatarmagick-readme-bgcolor.png)
+![bgcolor](https://user-images.githubusercontent.com/138067/52684569-b1c77100-2f14-11e9-88dd-3fc7355ed515.png)
 
 ```ruby
 Dragonfly.app.generate(:initial_avatar, "James Hetfield", {background_color: 'f48fb1', color: '333333'})
@@ -119,7 +119,7 @@ Dragonfly.app.generate(:initial_avatar, "James Hetfield", {background_color: 'f4
 
 will produce
 
-![txtcolor](https://dl.dropboxusercontent.com/u/362501/avatarmagick-readme-textcolor.png)
+![txtcolor](https://user-images.githubusercontent.com/138067/52684674-036ffb80-2f15-11e9-808b-26160a6f67e5.png)
 
 ```ruby
 Dragonfly.app.generate(:initial_avatar, "Amanda Smith", {background_color: '00695c', size: '200'})
@@ -127,7 +127,7 @@ Dragonfly.app.generate(:initial_avatar, "Amanda Smith", {background_color: '0069
 
 will produce
 
-![size](https://dl.dropboxusercontent.com/u/362501/avatarmagick-readme-size.png)
+![size](https://user-images.githubusercontent.com/138067/52684661-fbb05700-2f14-11e9-8128-12bb2e667481.png)
 
 ```ruby
 Dragonfly.app.generate(:initial_avatar, "Oliver Murphy", {background_color: 'b71c1c', font: 'Georgia'})
@@ -135,7 +135,7 @@ Dragonfly.app.generate(:initial_avatar, "Oliver Murphy", {background_color: 'b71
 
 will produce
 
-![font](https://dl.dropboxusercontent.com/u/362501/avatarmagick-readme-font.png)
+![font](https://user-images.githubusercontent.com/138067/52684652-f4894900-2f14-11e9-9b0e-c66e4d68bb35.png)
 
 ## Development
 
