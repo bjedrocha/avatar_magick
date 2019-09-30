@@ -17,6 +17,7 @@ module AvatarMagick
         color       = opts[:color] ? "##{opts[:color]}" : content.env[:avatar_magick][:color]
         size        = opts[:size] || content.env[:avatar_magick][:size]
         font        = opts[:font] || content.env[:avatar_magick][:font]
+        font_size   = opts[:font_size]
 
         # extract the first letter of the first 3 words and capitalize
         text = (string.split(/\s/)- ["", nil]).map { |t| t[0].upcase }.slice(0, 3).join('')
@@ -24,7 +25,7 @@ module AvatarMagick
         w, h = size.split('x').map { |d| d.to_i }
         h ||= w
 
-        font_size = ( w / [text.length, 2].max ).to_i
+        font_size = ( w / [text.length, 2].max ).to_i unless font_size.present?
 
         # Settings
         args.push("-gravity none")
